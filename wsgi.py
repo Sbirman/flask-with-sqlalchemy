@@ -30,7 +30,7 @@ def products():
     products = db.session.query(Product).all() # SQLAlchemy request => 'SELECT * FROM products'
     return products_schema.jsonify(products)
 
-@app.route('/products'/<int:id>)
+@app.route('/products/<int:id>')
 def read_one_product():
     products = db.session.query(Product).get(id) # SQLAlchemy request => 'SELECT * FROM products'
     return products_schema.jsonify(products)
