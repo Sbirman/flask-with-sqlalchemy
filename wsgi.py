@@ -31,6 +31,6 @@ def products():
     return products_schema.jsonify(products)
 
 @app.route('/products/<int:id>')
-def read_one_product():
+def read_one_product(id):
     products = db.session.query(Product).get(id) # SQLAlchemy request => 'SELECT * FROM products'
     return products_schema.jsonify(products)
